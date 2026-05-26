@@ -1,6 +1,6 @@
 import requests
 
-HEADERS = {"User-Agent": "earnings-analyst your@email.com"}
+HEADERS = {"User-Agent": "earnings-analyst 1.dim.nm.e2@gmail.com"}
 
 def get_cik(ticker: str) -> str:
     url = "https://www.sec.gov/files/company_tickers.json"
@@ -14,3 +14,8 @@ def get_cik(ticker: str) -> str:
             return str(entry["cik_str"]).zfill(10)
     
     raise ValueError(f"Ticker '{ticker}' not found")
+
+
+if __name__ == "__main__":
+    cik = get_cik("NVDA")
+    print(cik)
